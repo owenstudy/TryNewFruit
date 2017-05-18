@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=0">
+<title>我的订单</title>
+<!--<div class="weui-navbar__item weui-bar__item_on">  -->
+ <div class="weui-navbar__item weui-bar__item_on">	
+		<img id="headimgurl" src="static/image/DefaultUserImage.png" alt="" class="weui-tabbar__icon">
+		<P>我的水果</P>
+</div>
+<!-- 引入 WeUI -->
+<link rel="stylesheet" href="static/style/weui.css" />
+<script src="static/js/jquery/jquery-1.10.0-min.js"></script>
+<script charset="utf-8" src="script/publicFunction.js"></script>
+<script charset="utf-8" src="script/MyOrder.js"></script>
+</head>
+<body>
+<!-- 
+       <div class="button-sp-area">
+       		<a href="javascript:;" class="weui-btn weui-btn_plain-default">我的订单</a>
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary">待派送</a>
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_warn">派送中</a>
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default">派送完成</a>
+        </div>
+ -->
+
+<div class="page">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <div class="weui-tab__panel">
+
+            </div>
+            <div  class="weui-tabbar">
+                <a id="PendingDelivery" href="javascript:void(0);" onclick="filterOrder(1)" class="weui-tabbar__item weui-bar__item_on">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="static/image/PendingDelivery.png" alt="" class="weui-tabbar__icon">
+                        <span id="pendingNum" class="weui-badge" style="position: absolute;top: -2px;right: -13px;">?</span>
+                    </span>
+                    <p class="weui-tabbar__label">待派送</p>
+                </a>
+                <a id="delivering" href="javascript:void(0);" onclick="filterOrder(2)" class="weui-tabbar__item">
+                    <img src="static/image/Delivering.png" alt="" class="weui-tabbar__icon">
+                    <p class="weui-tabbar__label" >派送中</p>
+                </a>
+                <a id="delivered" href="javascript:void(0);" onclick="filterOrder(3)" class="weui-tabbar__item">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="static/image/Delivered.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+                    </span>
+                    <p class="weui-tabbar__label">派送完成</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="weui-cells">
+
+            <a id="orderTitle" class="weui-cell weui-cell_access" href="javascript:void(0);" >
+                <div class="weui-cell__hd"><img src="static/image/OrderIco.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p>订单号</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>订单日期</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>订单内容</p>
+                </div>
+                                
+<!-- 
+                <div class="weui-cell__bd">
+                    <p>派送地址</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>联系人</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>联系电话</p>
+                </div>
+ -->                
+                
+                <!-- <div class="weui-cell__ft">说明文字</div>   -->
+            </a>
+            <a  id="order_data_template" class="weui-cell weui-cell_access" href="javascript:void(0);" onclick="showOrderDetail(this.name)">
+                <div class="weui-cell__hd"><img src="static/image/OrderIco.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p></p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p></p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p></p>
+                </div>
+                <div class="weui-cell__ft">
+                </div>
+                
+<!-- 
+                <div class="weui-cell__bd">
+                    <p></p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p></p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p></p>
+                </div>
+ -->
+            </a	>
+        </div>
+    <!-- loading toast -->
+    <div id="loadingToast" style="display:none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">数据加载中</p>
+        </div>
+    </div>
+     
+</body>
+</html>

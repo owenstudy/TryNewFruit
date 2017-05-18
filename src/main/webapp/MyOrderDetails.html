@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=0">
+<title>我的订单明细</title>
+<!-- 引入 WeUI -->
+<link rel="stylesheet" href="static/style/weui.css" />
+<script src="static/js/jquery/jquery-1.10.0-min.js"></script>
+<script charset="utf-8" src="script/publicFunction.js"></script>
+<script charset="utf-8" src="script/MyOrderDetails.js"></script></head>
+<body>
+<div class="weui-cells">
+
+            <a id="orderDetailTemplate" class="weui-cell weui-cell_access" href="javascript:void(0);" >
+                <div class="weui-cell__hd"><img src="static/image/OrderIco.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p>订单号</p>
+                </div>
+                <div class="weui-cell__bd">
+                    <p></p>
+                </div>
+            </a>
+</div>    
+</br>
+	<input id="cancelOrder" class="weui-btn weui-btn_warn"
+			type="submit" value="订单取消"  />            
+
+   <!-- loading toast -->
+    <div id="loadingToast" style="display:none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">数据加载中</p>
+        </div>
+    </div>
+    <div id="dialogs">
+        <!--BEGIN dialog1-->
+        <div class="js_dialog" id="cancelConfirm" style="display: none;">
+            <div class="weui-mask"></div>
+            <div class="weui-dialog">
+                <div class="weui-dialog__hd"><strong class="weui-dialog__title">确认要取消吗?</strong></div>
+                <div class="weui-dialog__bd">确认要取消当前的订单吗？取消后，你可以到订单预定继续预定，但是可能会影响送货到达日期！</div>
+                <div class="weui-dialog__ft">
+                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">再想想</a>
+                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">确认</a>
+                </div>
+            </div>
+        </div>
+        <div class="js_dialog" id="dialog_template" style="display: none;">
+            <div class="weui-mask"></div>
+            <div class="weui-dialog">
+                <div  class="weui-dialog__bd" >预定义的内容，通过JS来修改</div>
+                <div class="weui-dialog__ft">
+                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">知道了</a>
+                </div>
+            </div>
+        </div>
+        
+	</div>     
+        
+</body>
+</html>

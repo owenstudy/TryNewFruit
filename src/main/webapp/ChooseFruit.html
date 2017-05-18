@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=0">
+<title>选择水果</title>
+<!-- 引入 WeUI -->
+<link rel="stylesheet" href="static/style/weui.css" />
+<script src="static/js/jquery/jquery-1.10.0-min.js"></script>
+<script charset="utf-8" src="script/publicFunction.js"></script>
+<script charset="utf-8" src="script/ChooseFruit.js"></script>
+
+</head>
+<body>
+<br>
+    
+ 		<div class="weui-cells__title"><h2>选择水果</h2></div>
+	<div class="weui-panel__bd">
+		<a href="javascript:void(0);"
+			class="weui-media-box weui-media-box_appmsg">
+			<div class="weui-media-box__hd">
+				<img class="weui-media-box__thumb"
+					src="static/image/MyBalance.png"
+					>
+			</div>
+			<div class="weui-media-box__bd">
+				<h4 class="weui-media-box__title">我的余额</h4>
+				<h4 class="weui-media-box__desc">？</h4>
+		
+			</div>
+		</a> 
+	</div>
+ 		
+        <div class="weui-cells weui-cells_form">
+ 		    <div class="weui-cell" id="fruit_template">
+                <div class="weui-cell__hd"><label class="weui-label">?</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-btn weui-btn_mini weui-btn_primary"  type="submit" value="-" >        
+                    <input class="weui-btn weui-btn_mini weui-btn_default" type="submit" pattern="[0-9]*" value="0" disabled=true/>
+	    			<input class="weui-btn weui-btn_mini weui-btn_primary"  type="submit" value="+" tag="plus">   
+                </div>
+            </div>
+
+            </div>
+		<br> <input id="ChooseFruit" class="weui-btn weui-btn_primary"
+			type="submit" value="派送地址"  />            
+	
+      <!-- 操作反馈区 -->
+    <div id="dialogs">
+        <!--BEGIN dialog2-->
+       <!-- 短信发送失败提示信息 -->        
+        <!-- 提示信息模板，供调用时生成-->
+        <div class="js_dialog" id="dialog_template" style="display: none;">
+            <div class="weui-mask"></div>
+            <div class="weui-dialog">
+                <div  class="weui-dialog__bd" >预定义的内容，通过JS来修改</div>
+                <div class="weui-dialog__ft">
+                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+                </div>
+            </div>
+        </div>
+	</div>
+    <!-- loading toast -->
+    <div id="loadingToast" style="display:none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">数据处理中</p>
+        </div>
+    </div>
+	<!--一个form中有多个提交事件，点击输入手机码验证或者激活按钮 -->
+	<script>
+
+
+     </script>
+</body>
+</html>
