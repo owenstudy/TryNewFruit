@@ -7,7 +7,7 @@ public class WeixinConstant {
 	//APPSECRET
 	public static final String APPSECRET = ""; 
 	//微信授权后重定位的URL
-	public static final String REDIRECT_URI = "http://trynewfruit.bceapp.com/OAuth2Servlet";
+	public static final String REDIRECT_URI = "http://wechat.trynewfruit.cn/OAuth2Servlet";
 	//微信访问的token
 	public static final String TOKEN = "";
 	//这个是请求获取webAuth访问的链接
