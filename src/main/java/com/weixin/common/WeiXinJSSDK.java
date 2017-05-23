@@ -44,15 +44,16 @@ public class WeiXinJSSDK extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		 String url = request.getParameter("url");
 		JSONObject jsSDK=new JSONObject();
-		StringBuffer url = request.getRequestURL();
-		String testurl=request.getRequestURI();
+//		StringBuffer url = request.getRequestURL();
+		String testurl=request.getRealPath("");
+		String runURL=request.getContextPath()+"/"+url;
 		System.out.println("testurl:"+testurl);
 		String strURL=url.toString();
-		strURL=strURL+".html";
-		strURL="http://trynewfruit.bceapp.com/JSSDKTest.html";
-		System.out.println("strURL:"+strURL);
-		jsSDK=WeiXinURLRun.getJSSDKConfigue(strURL);
+//		strURL="http://trynewfruit.bceapp.com/JSSDKTest.html";
+		System.out.println("runURL:"+runURL);
+		jsSDK=WeiXinURLRun.getJSSDKConfigue(runURL);
 		//jsSDK=WeiXinURLRun.getJSSDKConfigue("");
         PrintWriter pw = response.getWriter();   
         pw.print(jsSDK.toString());  
