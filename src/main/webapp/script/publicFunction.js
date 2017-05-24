@@ -4,7 +4,7 @@ var httpURL="http://www.trynewfruit.cn/";
 
 //var httpURL="http://172.18.29.34:8080/fruit/";
 //是否用真实的微信openid，只有在真实需要测试微信 的时候 才从微信服务端取出openid
-var useRealOpenid=false;
+var useRealOpenid=true;
 
 var CURR_OPENID;
 //订单状态公共变量
