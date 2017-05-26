@@ -1,7 +1,13 @@
-wechat.appid=
-wechat.appsecret=
-wechat.token=
+#正式环境的配置
+#wechat.appid=
+#wechat.appsecret=
+#wechat.token=TryNewFruit
 wechat.redirecturi=http://wechat.trynewfruit.cn/OAuth2Servlet
 sms.apikey=
 sms.singature=【水果尝尝鲜】
 sms.realsend=true
+
+#测试环境的配置
+wechat.appid=wx9c1b0d51058de998
+wechat.appsecret=ed34bb8f469f80c1341011d556b921e9
+wechat.token=TryNewFruit
