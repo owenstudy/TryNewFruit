@@ -2,7 +2,10 @@
  * 
  */
 $(document).ready(function(){
-	$.post("WeiXinJSSDK",function(data,status){
+	$.post("WeiXinJSSDK",{
+		url:"JSSDKTest.html"
+	},
+		function(data,status){
 		console.log("data:"+data);
 		configJson=JSON.parse(data);
 		console.log("Started call wx.config......");
