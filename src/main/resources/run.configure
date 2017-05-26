@@ -1,0 +1,7 @@
+wechat.appid=
+wechat.appsecret=
+wechat.token=
+wechat.redirecturi=http://wechat.trynewfruit.cn/OAuth2Servlet
+sms.apikey=
+sms.singature=¡¾Ë®¹û³¢³¢ÏÊ¡¿
+sms.realsend=true
