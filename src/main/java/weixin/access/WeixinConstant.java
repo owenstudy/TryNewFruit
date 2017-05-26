@@ -1,15 +1,20 @@
 package weixin.access;
 
+import configure.property.SetSystemProperty;
+
 //定义微信中用到的各个 常用参数，暂时放在这个中方便变更时修改
 public class WeixinConstant {
+	//变更类，用来保存常用的参数
+	public static SetSystemProperty configure;
+	
 	//APPID
-	public static final String APPID = "wxabb5aaef2a8dfb73";
+	public static final String APPID =configure.readValue("wechat.appid");
 	//APPSECRET
-	public static final String APPSECRET = ""; 
+	public static final String APPSECRET = configure.readValue("wechat.appsecret");
 	//微信授权后重定位的URL
-	public static final String REDIRECT_URI = "http://wechat.trynewfruit.cn/OAuth2Servlet";
+	public static final String REDIRECT_URI = configure.readValue("wechat.redirecturi");
 	//微信访问的token
-	public static final String TOKEN = "";
+	public static final String TOKEN = configure.readValue("wechat.token");;
 	//这个是请求获取webAuth访问的链接
 	public static final String WEIXIN_OAUTH_ACCESS_URL="https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=APPSECRET&code=CODE&grant_type=authorization_code"; 
 	//这个是请求获取用户基本信息的URL
