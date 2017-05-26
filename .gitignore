@@ -1,0 +1,6 @@
+/target/
+.project
+.settings
+.classpath
+/src/main/java/weixin/access/WeixinConstant.java
+/src/main/resources/run.configure
