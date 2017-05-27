@@ -28,7 +28,7 @@ public class SetSystemProperty {
     private static Properties props = new Properties();
     static {
         try {
-            props.load(new FileInputStream(profilepath));
+            props.load(SetSystemProperty.class.getClassLoader().getResourceAsStream(profilepath));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.exit(-1);
@@ -111,6 +111,7 @@ public class SetSystemProperty {
     }
     //测试代码
     public static void main(String[] args) {
+    	System.out.println("Test filepath:");
     	System.out.println("Test filepath:"+SetSystemProperty.class.getResource("/"));
     	System.out.println("Start...");
     	System.out.println(Thread.currentThread().getClass().getResource(profilepath));
@@ -118,7 +119,7 @@ public class SetSystemProperty {
         writeProperties("MAIL_SERVER_PASSWORD", "327@qq.com");  
         getKeyValue("MAIL_SERVER_PASSWORD");
         System.out.println("操作完成");
-        
+//        
         
 //        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
 //        InputStream in=classloader.getResourceAsStream(profilepath);

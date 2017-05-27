@@ -74,12 +74,12 @@ public class MenuManager {
         //TODO
         btn12.setUrl("http://i.eqxiu.com/s/NHQ3QnuY");
         
-        ViewButton btn13 = new ViewButton();  
-        btn13.setName("Test");  
-        btn13.setType("view");
-        //TODO
-        //btn13.setUrl(oAuthURL.replace("STATE", "13"));
-        btn13.setUrl("http://trynewfruit.bceapp.com/JSSDKTest.html");
+//        ViewButton btn13 = new ViewButton();  
+//        btn13.setName("Test");  
+//        btn13.setType("view");
+//        //TODO
+//        //btn13.setUrl(oAuthURL.replace("STATE", "13"));
+//        btn13.setUrl("http://trynewfruit.bceapp.com/JSSDKTest.html");
         
         /*
         CommonButton btn12 = new CommonButton();  
@@ -161,7 +161,7 @@ public class MenuManager {
   */
         ComplexButton mainBtn1 = new ComplexButton();  
         mainBtn1.setName("了解偿鲜");  
-        mainBtn1.setSub_button(new Button[] { btn11, btn12,btn13 });  
+        mainBtn1.setSub_button(new Button[] { btn11, btn12 });  
   
         ComplexButton mainBtn2 = new ComplexButton();  
         mainBtn2.setName("手机激活");  
