@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
+import weixin.access.WeixinConstant;
+
 /** 
  * @author  作者: Owen_Study
  * @Email   邮箱: owen_study@126.com
@@ -28,6 +30,7 @@ public class SetSystemProperty {
     private static Properties props = new Properties();
     static {
         try {
+        	System.out.println(SetSystemProperty.class.getClassLoader().getResource(profilepath));
             props.load(SetSystemProperty.class.getClassLoader().getResourceAsStream(profilepath));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -55,9 +58,10 @@ public class SetSystemProperty {
     public static String readValue( String key) {
         Properties props = new Properties();
         try {
-            InputStream in = new BufferedInputStream(new FileInputStream(
-            		profilepath));
-            props.load(in);
+//            InputStream in = new BufferedInputStream(new FileInputStream(
+//            		profilepath));
+            props.load(SetSystemProperty.class.getClassLoader().getResourceAsStream(profilepath));
+//            props.load(in);
             String value = props.getProperty(key);
 //            System.out.println(key +"键的值是："+ value);
             return value;
@@ -114,6 +118,7 @@ public class SetSystemProperty {
     	System.out.println("Test filepath:");
     	System.out.println("Test filepath:"+SetSystemProperty.class.getResource("/"));
     	System.out.println("Start...");
+    	System.out.println("appid:"+readValue("wechat.appid"));
     	System.out.println(Thread.currentThread().getClass().getResource(profilepath));
         readValue("MAIL_SERVER_PASSWORD");
         writeProperties("MAIL_SERVER_PASSWORD", "327@qq.com");  

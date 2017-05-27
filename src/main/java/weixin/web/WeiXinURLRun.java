@@ -53,6 +53,8 @@ public class WeiXinURLRun {
 	 public static JSONObject getoAuthAccessToken(String code )  throws  IOException{
 		String ACCESS_URL=WeixinConstant.WEIXIN_OAUTH_ACCESS_URL;
 		String userImageURL="";
+		System.out.println("call oAuth:appid");
+		System.out.println(WeixinConstant.APPID);
 	    String requestUrlString = ACCESS_URL.replace("APPID", WeixinConstant.APPID).replace("APPSECRET", WeixinConstant.APPSECRET).replace("CODE", code);//将请求用户的URL中的///参数替换成真正的内容  
 		
 		JSONObject resultObject=null;
