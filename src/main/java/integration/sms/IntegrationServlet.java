@@ -52,7 +52,7 @@ public class IntegrationServlet extends HttpServlet {
 //        String httpResponse =  SMSSender.sendMessage(phone,content+PublicParameters.SMSSINGATURE,"verify_code");
     	String httpResponse;
     	if(PublicParameters.REAL_SEND_SMS){
-    		 httpResponse =  SMSSender.sendMessage(phone,content+PublicParameters.SMSSINGATURE,"verify_code");	
+    		 httpResponse =  SMSSender.sendMessage(phone,content,"verify_code");	
     	}else{
         	//以下是虚拟调用    	
     		JSONObject resp = new JSONObject();
