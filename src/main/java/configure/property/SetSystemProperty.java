@@ -1,10 +1,12 @@
 package configure.property;
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.Properties;
 
@@ -60,9 +62,13 @@ public class SetSystemProperty {
         try {
 //            InputStream in = new BufferedInputStream(new FileInputStream(
 //            		profilepath));
-            props.load(SetSystemProperty.class.getClassLoader().getResourceAsStream(profilepath));
+//            props.load(SetSystemProperty.class.getClassLoader().getResourceAsStream(profilepath));
 //            props.load(in);
-            String value = props.getProperty(key);
+        	//要使用reader避免中文乱码
+        	InputStream inputStream = SetSystemProperty.class.getClassLoader().getResourceAsStream(profilepath);
+        	  BufferedReader bf = new BufferedReader(new  InputStreamReader(inputStream, "UTF-8"));
+        	  props.load(bf);
+        	  String value = props.getProperty(key);
 //            System.out.println(key +"键的值是："+ value);
             return value;
         } catch (Exception e) {

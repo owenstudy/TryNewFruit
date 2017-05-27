@@ -41,6 +41,7 @@ public class SMSVerifyCode {
 		//生成随机的验证码
 		VerifyCode=SMSVerifyCode.CreateRandomCode(); 
     	String message="验证码："+VerifyCode+PublicParameters.SMSSINGATURE; 
+    	System.out.println("message:"+message);
         //TODO在生产环境才调用，测试用虚拟的值 
     	String httpResponse;
     	if(PublicParameters.REAL_SEND_SMS){
