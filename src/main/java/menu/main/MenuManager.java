@@ -29,6 +29,7 @@ public class MenuManager {
         // 第三方用户唯一凭证密钥  
         String appSecret = WeixinConstant.APPSECRET;  
   
+        System.out.println(appId+":"+appSecret);
         // 调用接口获取access_token  
         AccessToken at = WeixinUtil.getAccessToken(appId, appSecret);  
   
@@ -60,7 +61,7 @@ public class MenuManager {
     	String redirect_URI=WeixinConstant.REDIRECT_URI;
         String oAuthURL="https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
         oAuthURL=oAuthURL.replace("APPID", WeixinConstant.APPID).replace("REDIRECT_URI",redirect_URI).replace("SCOPE", "snsapi_userinfo");  //snsapi_base
-        System.out.println(oAuthURL);
+//        System.out.println(oAuthURL);
     	
         ViewButton btn11 = new ViewButton();  
         btn11.setName("关于偿鲜");  

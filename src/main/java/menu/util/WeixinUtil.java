@@ -43,7 +43,8 @@ public class WeixinUtil {
 	public static AccessToken getAccessToken(String appid, String appsecret) {  
 	    AccessToken accessToken = null;  
 	  
-	    String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);  
+	    String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
+//	    System.out.println("access_token_url: "+access_token_url );
 	    JSONObject jsonObject = httpRequest(requestUrl, "GET", null);  
 	    // 如果请求成功  
 	    if (null != jsonObject) {  
