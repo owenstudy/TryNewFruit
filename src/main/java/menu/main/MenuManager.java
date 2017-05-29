@@ -55,7 +55,7 @@ public class MenuManager {
     private static Menu getMenu() {  
     	/*
         CommonButton btn11 = new CommonButton();  
-        btn11.setName("关于偿鲜");  
+        btn11.setName("关于尝鲜");  
         btn11.setType("click");  
         btn11.setKey("11"); 
         */
@@ -66,7 +66,7 @@ public class MenuManager {
 //        System.out.println(oAuthURL);
     	
         ViewButton btn11 = new ViewButton();  
-        btn11.setName("关于偿鲜");  
+        btn11.setName("关于尝鲜");  
         btn11.setType("view");  
         btn11.setUrl("http://i.eqxiu.com/s/NHQ3QnuY");  
   
@@ -141,7 +141,7 @@ public class MenuManager {
 //        btn31.setKey("31");  
         
         ViewButton btn31 = new ViewButton();  
-        btn31.setName("偿鲜预定");  
+        btn31.setName("尝鲜预定");  
         btn31.setType("view");  
         //设置传送菜单定位参数
         btn31.setUrl(oAuthURL.replace("STATE", "31"));  
@@ -163,7 +163,7 @@ public class MenuManager {
         btn33.setKey("33");  
   */
         ComplexButton mainBtn1 = new ComplexButton();  
-        mainBtn1.setName("了解偿鲜");  
+        mainBtn1.setName("了解尝鲜");  
         mainBtn1.setSub_button(new Button[] { btn11, btn12 });  
   
         ComplexButton mainBtn2 = new ComplexButton();  
