@@ -79,23 +79,29 @@ var currOrderNumCurrMonth
 			   console.log("用户选择的水果列表:"+JSON.stringify(chosefruitlist))
 		   });	  
 		   startLoadingData()   
-		$.post("ChooseFruit",{
-			fruitList:JSON.stringify(chosefruitlist)
-//			fruitList:chosefruitlist
-		},
-		function(data,status){
-			if(status=="success"){
-	    		 //跳转到地址输入界面
-	    		 jumpAddressInput();				
-				console.log("水果保存到session成功！");
-				finishLoadingData();
-			}else{
-				console.log("水果保存到session让失败！");
-				MsgInfo("水果保存时出现错误，请微信再试！");
-				finishLoadingData();
-			}
-			
-		});    				
+		var currChooseFruitNum=getTotalChooseAmt();
+		if (currChooseFruitNum==0){
+			MsgInfo("至少需要选择一种水果!");
+			finishLoadingData();
+		}else{
+			$.post("ChooseFruit",{
+				fruitList:JSON.stringify(chosefruitlist)
+//				fruitList:chosefruitlist
+			},
+			function(data,status){
+				if(status=="success"){
+		    		 //跳转到地址输入界面
+		    		 jumpAddressInput();				
+					console.log("水果保存到session成功！");
+					finishLoadingData();
+				}else{
+					console.log("水果保存到session让失败！");
+					MsgInfo("水果保存时出现错误，请微信再试！");
+					finishLoadingData();
+				}
+				
+			});    							
+		}
 	   
    }   	     
    //取得当前页面中已经选择的数量 ，确保总的数量不超过用户的可用数量

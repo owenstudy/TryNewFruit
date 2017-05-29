@@ -4,7 +4,7 @@ var httpURL="http://www.trynewfruit.cn/";
 
 //var httpURL="http://172.18.29.34:8080/fruit/";
 //是否用真实的微信openid，只有在真实需要测试微信 的时候 才从微信服务端取出openid
-var useRealOpenid=true;
+var useRealOpenid=false;
 
 var CURR_OPENID;
 //订单状态公共变量
@@ -37,7 +37,7 @@ function getCurrOpenid(){
 	   //TODO 需要研究如何取得openid
 //	   return "1234567890";
 	if(useRealOpenid==false){
-		   return "oJePmvmqwkHk4DscKo7za4wB63UU";		
+		   return "ozt8P0w3eq_Lc55odhFNZhSWkQy0";		
 //		return "1111222233334444";
 	}else{
 		   return CURR_OPENID; 

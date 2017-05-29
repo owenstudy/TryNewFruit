@@ -22,6 +22,8 @@ import java.net.*;
 public class MenuManager {  
     private static Logger log = LoggerFactory.getLogger(MenuManager.class);  
   
+    //创建自定义菜单，根据每个月的水果进行介绍 TODO
+    
     public static void main(String[] args) {  
         // 第三方用户唯一凭证  
 //        String appId = "wxabb5aaef2a8dfb73";  
@@ -73,7 +75,7 @@ public class MenuManager {
         btn12.setName("水果计划");  
         btn12.setType("view");
         //TODO
-        btn12.setUrl("http://i.eqxiu.com/s/NHQ3QnuY");
+        btn12.setUrl("https://m.eqxiu.com/s/Vb1JaE6g");
         
 //        ViewButton btn13 = new ViewButton();  
 //        btn13.setName("Test");  
