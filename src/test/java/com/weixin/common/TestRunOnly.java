@@ -22,4 +22,6 @@ public class TestRunOnly {
 		 httpResponse =  SMSSender.sendMessage("13166366407","Test verify code."+PublicParameters.SMSSINGATURE,"verify_code");	
 	}	
     }
+    
+    
 }

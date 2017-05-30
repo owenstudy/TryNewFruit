@@ -21,9 +21,40 @@ import java.net.*;
  */  
 public class MenuManager {  
     private static Logger log = LoggerFactory.getLogger(MenuManager.class);  
-  
-    //创建自定义菜单，根据每个月的水果进行介绍 TODO
     
+    //创建自定义菜单，根据每个月的水果进行介绍 TODO
+    private static String menu12URL ="";
+    
+    public static boolean createMenu12(String url){
+    	boolean resultFlag=true; 
+    	menu12URL=url; 
+        // 第三方用户唯一凭证  
+//      String appId = "wxabb5aaef2a8dfb73";  
+  	String appId = WeixinConstant.APPID;
+      // 第三方用户唯一凭证密钥  
+      String appSecret = WeixinConstant.APPSECRET;  
+
+      System.out.println(appId+":"+appSecret);
+      // 调用接口获取access_token  
+      AccessToken at = WeixinUtil.getAccessToken(appId, appSecret);  
+
+      if (null != at) {  
+          // 调用接口创建菜单  
+          int result = WeixinUtil.createMenu(getMenu(), at.getToken());  
+
+          // 判断菜单创建结果  
+          if (0 == result){
+              log.info("菜单创建成功！");
+              resultFlag= true;                   	  
+          }
+          else  {
+              log.info("菜单创建失败，错误码：" + result);  
+              resultFlag= false;                   	          	  
+          }
+      }  
+    	
+      return resultFlag; 
+    }
     public static void main(String[] args) {  
         // 第三方用户唯一凭证  
 //        String appId = "wxabb5aaef2a8dfb73";  
@@ -38,7 +69,9 @@ public class MenuManager {
         if (null != at) {  
             // 调用接口创建菜单  
             int result = WeixinUtil.createMenu(getMenu(), at.getToken());  
-  
+//        	int result =0; 
+//        	boolean flag=createMenu12("https://m.eqxiu.com/s/Vb1JaE6g");
+//        	log.info("自定义菜单创建："+flag);
             // 判断菜单创建结果  
             if (0 == result)  
                 log.info("菜单创建成功！");  
@@ -75,7 +108,14 @@ public class MenuManager {
         btn12.setName("水果计划");  
         btn12.setType("view");
         //TODO
-        btn12.setUrl("https://m.eqxiu.com/s/Vb1JaE6g");
+        if( menu12URL.equals("")){
+        	//默认的菜单
+            btn12.setUrl("http://i.eqxiu.com/s/NHQ3QnuY");        	
+        	
+        }else{
+        	//自定义的菜单
+            btn12.setUrl(menu12URL);        	
+        }
         
 //        ViewButton btn13 = new ViewButton();  
 //        btn13.setName("Test");  

@@ -7,6 +7,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;  
 import javax.servlet.http.HttpServletResponse;
 
+import menu.main.MenuManager;
 import message.resp.TextMessage;  
 import service.MessageUtil;  
   
@@ -17,6 +18,12 @@ import service.MessageUtil;
  * @date 2013-05-20 
  */  
 public class CoreService {  
+	//输入内容是菜单，则进入新的流程
+	public static String strMenu="";
+	//自定义的谁证码
+	public static String strMenuPassword="";
+	//自定义的菜单链接
+	public static String strMenuURI="";
 	
     /** 
      * 处理微信发来的请求 
@@ -51,7 +58,11 @@ public class CoreService {
   
             // 文本消息  
             if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {  
-                respContent = "您发送的是文本消息！，你的openid是:"+fromUserName;  
+                //消息内容
+                String msgContent=requestMap.get("Content");  
+//                respContent = "您发送的是文本消息！";  
+            	respContent=MenuProcess(msgContent);
+                System.out.println("您发送的是文本消息！");
             }  
             // 图片消息  
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {  
@@ -125,4 +136,42 @@ public class CoreService {
   
         return respMessage;  
     }  
+
+//在消息中处理每个月的水果介绍菜单    
+public static String MenuProcess(String textMessage){
+	String responseString="";
+	String menuPassword="trynewfruit";
+	//接收到菜单消息时返回
+	if(textMessage.equals("菜单")){
+		responseString="请回复输入菜单定义的验证码";
+		strMenu="menu";
+	}else if (strMenu.equals("menu") && textMessage.equals(menuPassword)){
+		//有值代表校验码验证通过
+		strMenuPassword=menuPassword;
+		responseString="请回复输入每个月的水果介绍网页链接。如 : https://m.eqxiu.com/s/Vb1JaE6g";
+	}else if (strMenu.equals("menu") && strMenuPassword.equals(menuPassword)){
+		//校验URI有有效性
+		URLAvailability  ua = new URLAvailability();
+		boolean flag = ua.isConnected(textMessage);
+		if (flag==true){
+			//开始创建菜单
+			boolean menuFlag=MenuManager.createMenu12(textMessage);
+			if (menuFlag==true){
+				responseString="菜单创建成功！";	
+				strMenu="";
+				strMenuPassword="";
+				strMenuURI="";
+			}else{
+				responseString="菜单创建失败，请确认链接是否正确，不能含有空行或联系系统管理员解决！";				
+			}
+		}else{
+			responseString="网页链接不是有效的链接，请重新输入!";
+		}
+	}else{
+		responseString="如果您有任何疑问，你可以留言或者给我们打电话!";
+	}
+	
+	return responseString;
+}
 }  
+
