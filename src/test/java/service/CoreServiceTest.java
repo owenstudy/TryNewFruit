@@ -10,5 +10,6 @@ public static void main(String[] args){
 	String message="";
 	message=CoreService.MenuProcess("菜单");
 	System.out.println("message:"+message);
+	
 }
 }
