@@ -6,6 +6,8 @@ var orderList=[{"id":1,"orderdate":"2017/4/19"},{"id":2,"orderdate":"2017/4/19"}
 
 
 $(document).ready(function(){
+	 //检查浏览器
+	 onlyWechatAccess();	
 //	generateOrderList();
 	getSessionOpenid();
 	//自动在网页中增加统一的页脚

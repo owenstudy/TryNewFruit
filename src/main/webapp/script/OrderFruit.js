@@ -6,7 +6,8 @@ var contactInfo;
 var defaultAddress; 
 
 $(document).ready(function(){
-	
+	 //检查浏览器
+	 onlyWechatAccess();	
 	//从session中取当前用户的openid
 	 getSessionOpenid();    		
     //消息弹出框的提示按钮点击动作，点击后消息

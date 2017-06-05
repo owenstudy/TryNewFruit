@@ -5,6 +5,8 @@ var httpURL="http://www.trynewfruit.cn/";
 //var httpURL="http://172.18.29.34:8080/fruit/";
 //是否用真实的微信openid，只有在真实需要测试微信 的时候 才从微信服务端取出openid
 var useRealOpenid=true;
+//是否检查微信浏览器，在测试阶段不需要检查，上线的版本要把这个值修改为true
+var isCheckWechatExplore=false; 
 
 var CURR_OPENID;
 //订单状态公共变量
@@ -146,4 +148,20 @@ function getRestfulCall(url, openid, successcallback, failedcallback){
 		 }
  });
 	
+}
+
+//只有微信可以访问网页
+function onlyWechatAccess(){
+	if (isCheckWechatExplore==true){
+    // 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器  
+    var useragent = navigator.userAgent;  
+    if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {  
+        // 这里警告框会阻塞当前页面继续加载  
+        alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');  
+        // 以下代码是用javascript强行关闭当前页面  
+        var opened = window.open('about:blank', '_self');  
+        opened.opener = null;  
+        opened.close();  
+    }  
+}	
 }

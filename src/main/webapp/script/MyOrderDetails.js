@@ -5,6 +5,8 @@
 var currOrderDetail;
 
 $(document).ready(function(){
+	 //检查浏览器
+	 onlyWechatAccess();	
 	//从服务器中取得用户选择的水果列表
 	getOrderDetail();
 	//取得服务端的openid

@@ -1,5 +1,7 @@
      //Ajax, 点击获取验证码后到服务器生成发送
 	$(document).ready(function(){
+			//检查浏览器
+   	 		onlyWechatAccess();
     		//从session中取当前用户的openid
     		initOpenid()    		
     		//mobile点击校验事件	
