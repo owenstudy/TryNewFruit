@@ -6,7 +6,7 @@ var httpURL="http://www.trynewfruit.cn/";
 //是否用真实的微信openid，只有在真实需要测试微信 的时候 才从微信服务端取出openid
 var useRealOpenid=true;
 //是否检查微信浏览器，在测试阶段不需要检查，上线的版本要把这个值修改为true
-var isCheckWechatExplore=false; 
+var isCheckWechatExplore=true; 
 
 var CURR_OPENID;
 //订单状态公共变量
